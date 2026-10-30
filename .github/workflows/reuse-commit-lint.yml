@@ -1,0 +1,31 @@
+name: reuse-commit-lint
+
+# Workflow riusabile: titolo PR convenzionale (Conventional Commits).
+# Il titolo diventa il messaggio di squash-merge, quindi la storia resta pulita.
+# Caller: uses: XtremeAlex/.github/.github/workflows/reuse-commit-lint.yml@main
+#         con: {}  e  secrets: inherit
+on:
+  workflow_call:
+
+jobs:
+  conventional-pr-title:
+    name: Titolo PR convenzionale
+    runs-on: ubuntu-latest
+    steps:
+      - uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          types: |
+            feat
+            fix
+            chore
+            docs
+            refactor
+            test
+            build
+            ci
+            perf
+            style
+            revert
+          requireScope: false

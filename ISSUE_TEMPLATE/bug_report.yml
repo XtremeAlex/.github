@@ -1,0 +1,36 @@
+name: Bug report
+description: Qualcosa non funziona come dovrebbe
+title: "fix: <descrizione breve>"
+labels: [bug]
+body:
+  - type: textarea
+    id: comportamento
+    attributes:
+      label: Comportamento atteso e ottenuto
+      description: Cosa dovrebbe succedere e cosa succede invece
+    validations:
+      required: true
+  - type: textarea
+    id: riproduzione
+    attributes:
+      label: Passi per riprodurre
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: ambiente
+    attributes:
+      label: Ambiente
+      placeholder: "OS, versione del progetto, runtime (es. Java 21, Node 26)"
+    validations:
+      required: false
+  - type: textarea
+    id: log
+    attributes:
+      label: Log o screenshot
+      render: shell
+    validations:
+      required: false
